@@ -1,0 +1,8 @@
+{% extends 'stocks.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+<form action="{{ url_for('stocks.delete_stock') }}" method="POST">
+    <input type="hidden" name="delete_ticker" value="{{ ticker }}">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+{% endblock %}

@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-bp = Blueprint('stocks', __name__)
+bp = Blueprint('stocks', __name__,  template_folder='../templates', static_folder='../static')
 
-from app.stocks import routes
+from app.authentication import authentication
