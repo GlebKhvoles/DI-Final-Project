@@ -89,8 +89,3 @@ def delete_stock():
         Stock.delete_stock(ticker_to_delete)
     
     return redirect(url_for('stocks.get_stocks'))
-
-
-
-
-

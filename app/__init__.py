@@ -12,12 +12,6 @@ bootstrap = Bootstrap()
 login_manager = LoginManager()
 csrf = CSRFProtect()
 
-db_info = {'host': 'dpg-ch7adag2qv26p1btlsig-a.oregon-postgres.render.com',
-           'database': 'render_6bjb',
-           'psw': 'jGuMtISwrcjpyNbCwFS5F2h2i3zsJJpr',
-           'user': 'khvol',
-           'port': '5432'}
-
 
 def create_app(static_url_path="", static_folder="static"):
     app = Flask(__name__)
@@ -25,9 +19,8 @@ def create_app(static_url_path="", static_folder="static"):
     login_manager.init_app(app)
     app.config['DEBUG'] = True 
     basedir = os.path.abspath(os.path.dirname(__file__))
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-    #os.path.join(basedir, 'stocks.db')
-    # postgres://khvol:gqPQc1ZZOzDZCVuygWpWT3Rj1GOhRUUS@dpg-chltrkvdvk4sq15e8is0-a.oregon-postgres.render.com/stock_viewer
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'stocks.db')
+    #postgres://khvol:gqPQc1ZZOzDZCVuygWpWT3Rj1GOhRUUS@dpg-chltrkvdvk4sq15e8is0-a.oregon-postgres.render.com/stock_viewer
     app.config['SECRET_KEY']='123456'
     db.init_app(app)
     migrate.init_app(app, db)

@@ -6,7 +6,7 @@
     <div class="box">
         <form method="POST" action="{{ url_for('authentication.signup') }}">
             {{ wtf.quick_form(form) }}
-        </form>
+            {{ wtf.csrf_token }}
     </div>
 </div>
 {% endblock %}

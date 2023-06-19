@@ -20,7 +20,7 @@ def delete_stock(ticker):
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), unique=True, nullable=False)
+    nickname = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(50), nullable=False)
     stocks = db.relationship('Stock', secondary=user_stocks, lazy='subquery',
